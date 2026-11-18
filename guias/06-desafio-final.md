@@ -55,7 +55,7 @@ E estas são as **regras de negócio** (RN), que o sistema precisa garantir:
 ┌────────────────────────┐   HTTP + JSON   ┌──────────────────────────┐   SQL   ┌──────────────┐
 │  Angular               │ ──────────────► │  ASP.NET Core Web API    │ ──────► │  SQL Server  │
 │  localhost:4200        │ ◄────────────── │  localhost:5000          │ ◄────── │  AfinadoDb   │
-│  Guias 2 e 3           │                 │  Guia 1                  │         │  Guia 4      │
+│  Guias 3 e 4           │                 │  Guia 1                  │         │  Guia 5      │
 └────────────────────────┘                 └──────────────────────────┘         └──────────────┘
 ```
 
@@ -79,18 +79,18 @@ Antes de começar, confira se tudo está instalado. Cada item foi explicado na P
 
 - [ ] .NET SDK (LTS): `dotnet --version` (Guia 1)
 - [ ] Visual Studio Community ou VS Code com C# Dev Kit (Guia 1)
-- [ ] Node.js (LTS): `node --version` (Guia 2)
-- [ ] Angular CLI: `ng version` (Guia 2)
-- [ ] SQL Server em execução e SSMS conectando em `localhost` (Guia 4)
-- [ ] Git: `git --version` (Guia 1)
+- [ ] Node.js (LTS): `node --version` (Guia 3)
+- [ ] Angular CLI: `ng version` (Guia 3)
+- [ ] SQL Server em execução e SSMS conectando em `localhost` (Guia 5)
+- [ ] Git: `git --version` (Guia 2)
 
-Crie a pasta `afinado`, rode `git init` dentro dela e faça um commit ao final de cada etapa.
+Crie a pasta `afinado`, rode `git init` dentro dela e faça um commit ao final de cada etapa (o fluxo de trabalho está no Guia 2, Parte 3). Se quiser praticar branches, crie uma branch por etapa e faça o merge na `main` quando ela estiver pronta.
 
 ---
 
 ## Etapa 1: Banco de dados com SQL Server
 
-> Revise: Guia 4, Partes 1 a 3 (tabelas, chaves, relacionamentos) e Parte 8 (índices).
+> Revise: Guia 5, Partes 1 a 3 (tabelas, chaves, relacionamentos) e Parte 8 (índices).
 
 ### Modelando as entidades
 
@@ -165,7 +165,7 @@ Crie índices para as consultas que o sistema vai fazer com frequência:
 <details>
 <summary>Ver a dica do item 3</summary>
 
-Um **índice único filtrado** (Guia 4, seção 8.4) resolve: ele garante a unicidade só nas linhas que satisfazem o filtro.
+Um **índice único filtrado** (Guia 5, seção 8.4) resolve: ele garante a unicidade só nas linhas que satisfazem o filtro.
 
 ```sql
 CREATE UNIQUE INDEX UX_Locacoes_InstrumentoEmAndamento
@@ -282,7 +282,7 @@ Esse método não depende de banco nem de HTTP, então é perfeito para testes u
 
 ## Etapa 3: Front-end com Angular
 
-> Revise: Guia 2, Parte 6 (Angular) e Guia 3 inteiro (HTML semântico, Flexbox, Grid, responsividade).
+> Revise: Guia 3, Parte 6 (Angular) e Guia 4 inteiro (HTML semântico, Flexbox, Grid, responsividade).
 
 ### Criando o projeto e a estrutura
 
@@ -306,7 +306,7 @@ src/app/
 └── shared/          ← componentes reutilizáveis (cabeçalho, badge de situação)
 ```
 
-Configure `provideHttpClient()` no `app.config.ts` e crie um arquivo de ambiente com a URL da API (Guia 2, seção 6.15).
+Configure `provideHttpClient()` no `app.config.ts` e crie um arquivo de ambiente com a URL da API (Guia 3, seção 6.15).
 
 ### Rotas e layout
 
@@ -320,25 +320,25 @@ Crie as rotas:
 | `/clientes` | Lista e cadastro de clientes |
 | `/locacoes` | Locações em andamento e botão de nova locação |
 
-Monte o layout com HTML semântico: um `<header>` com o nome da loja e um `<nav>` com links para as três áreas, e um `<main>` com o `<router-outlet />`. Use Flexbox no cabeçalho e variáveis CSS para as cores (Guia 3, Parte 6).
+Monte o layout com HTML semântico: um `<header>` com o nome da loja e um `<nav>` com links para as três áreas, e um `<main>` com o `<router-outlet />`. Use Flexbox no cabeçalho e variáveis CSS para as cores (Guia 4, Parte 6).
 
 ### Lista de instrumentos
 
 A tela principal do sistema. Ela deve:
 
-- Mostrar os instrumentos em **cartões** organizados com CSS Grid: `repeat(auto-fill, minmax(260px, 1fr))` (Guia 3, seção 4.3).
+- Mostrar os instrumentos em **cartões** organizados com CSS Grid: `repeat(auto-fill, minmax(260px, 1fr))` (Guia 4, seção 4.3).
 - Exibir em cada cartão: nome, marca, categoria, valor da diária formatado em reais (pipe `currency`) e um **badge colorido** com a situação.
 - Ter filtros por nome (campo de texto), categoria (`<select>`) e situação.
 - Ter botões de **editar** e **excluir** em cada cartão, com confirmação antes de excluir.
 - Mostrar uma mensagem útil quando a lista estiver vazia ("Nenhum instrumento encontrado. Cadastre o primeiro.") e quando a API estiver fora do ar.
 
-> **Acessibilidade:** a situação não pode ser indicada só pela cor do badge (Guia 3, seção 2.9). Escreva também o texto: "Disponível", "Locado", "Em manutenção".
+> **Acessibilidade:** a situação não pode ser indicada só pela cor do badge (Guia 4, seção 2.9). Escreva também o texto: "Disponível", "Locado", "Em manutenção".
 
 ### Formulário de instrumento
 
 Uma única tela serve para cadastrar e editar: se a rota tiver `:id`, carregue o instrumento e preencha o formulário.
 
-- Use **formulários reativos** com validação (Guia 2, seção 6.12).
+- Use **formulários reativos** com validação (Guia 3, seção 6.12).
 - Campos: nome, marca, modelo, número de série, categoria (`<select>` carregado da API), valor da diária, conservação e observações.
 - Cada campo com `<label>` ligado ao `id` do campo.
 - Mensagens de erro abaixo de cada campo inválido.
@@ -357,8 +357,8 @@ Uma única tela serve para cadastrar e editar: se a rota tiver `:id`, carregue o
 
 ### Acabamento visual
 
-- **Responsivo:** use a Device Toolbar (Ctrl+Shift+M) e garanta que todas as telas funcionem em 360px de largura (Guia 3, Parte 5).
-- **Tema claro e escuro** com variáveis CSS e `prefers-color-scheme` (Guia 3, seção 6.1).
+- **Responsivo:** use a Device Toolbar (Ctrl+Shift+M) e garanta que todas as telas funcionem em 360px de largura (Guia 4, Parte 5).
+- **Tema claro e escuro** com variáveis CSS e `prefers-color-scheme` (Guia 4, seção 6.1).
 - **Estados de carregamento:** mostre um indicador enquanto a API responde.
 - **Lighthouse:** rode a auditoria e chegue a 90 ou mais em acessibilidade.
 
@@ -391,7 +391,7 @@ Antes de considerar o desafio concluído, teste este roteiro do começo ao fim:
    - Uma descrição do sistema e uma captura de tela.
    - As tecnologias usadas.
    - O passo a passo para rodar: executar os scripts SQL, configurar a connection string, `dotnet run` na API e `ng serve` no front-end.
-4. Crie um repositório no GitHub e envie o código:
+4. Crie um repositório no GitHub e envie o código (revise a Parte 5 do Guia 2):
 
 ```bash
 git add .

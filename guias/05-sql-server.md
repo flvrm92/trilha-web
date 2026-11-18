@@ -1,8 +1,8 @@
-# Guia 4: SQL com SQL Server
+# Guia 5: SQL com SQL Server
 
 > **Objetivo:** entender como os dados de uma aplicação são guardados e consultados. Você vai aprender o que são bancos de dados relacionais, tabelas, chaves primárias e estrangeiras, relacionamentos, índices, e escrever consultas SQL no SQL Server, terminando com a ligação entre o banco e a API do Guia 1.
 >
-> **Pré-requisitos:** Guias 1 a 3. O exemplo da loja que usamos nos guias anteriores continua aqui.
+> **Pré-requisitos:** Guias 1 a 4. O exemplo da loja que usamos nos guias anteriores continua aqui.
 
 ## Sumário
 
@@ -26,7 +26,7 @@
 
 ### 0.1 Por que precisamos de um banco de dados?
 
-Até agora, os dados dos nossos programas viviam na memória (uma `List<Produto>` no C#, um array no JavaScript) e sumiam quando o programa fechava. O `localStorage` do Guia 2 guarda dados, mas só no navegador de um usuário.
+Até agora, os dados dos nossos programas viviam na memória (uma `List<Produto>` no C#, um array no JavaScript) e sumiam quando o programa fechava. O `localStorage` do Guia 3 guarda dados, mas só no navegador de um usuário.
 
 Uma aplicação real precisa guardar dados de forma:
 - **Persistente:** sobrevivem a desligamentos.
@@ -429,7 +429,7 @@ Também são restrições: `NOT NULL` torna a coluna obrigatória e `DEFAULT` de
 | `NOT NULL` | A coluna sempre tem valor |
 | `DEFAULT` | Há um valor padrão quando nenhum é informado |
 
-> **Valide em todas as camadas.** No front-end (Guia 2) para dar retorno rápido ao usuário, na API (Guia 1) para aplicar as regras de negócio, e no banco como a última linha de defesa.
+> **Valide em todas as camadas.** No front-end (Guia 3) para dar retorno rápido ao usuário, na API (Guia 1) para aplicar as regras de negócio, e no banco como a última linha de defesa.
 
 ### Exercícios da Parte 2
 
@@ -1613,7 +1613,7 @@ GRANT EXECUTE ON sp_RegistrarVenda TO app_loja;
 ### 10.1 Juntando as peças
 
 ```
-Angular (Guia 2)        API ASP.NET Core (Guia 1)          SQL Server (Guia 4)
+Angular (Guia 3)        API ASP.NET Core (Guia 1)          SQL Server (Guia 5)
 ┌──────────────┐  HTTP  ┌──────────────────────────┐  SQL  ┌──────────────┐
 │ HttpClient   │──────► │ Controller → Service     │─────► │ Tabelas      │
 │              │  JSON  │      → EF Core / Dapper  │       │ Índices      │
@@ -1747,7 +1747,7 @@ Assim, toda a equipe e todos os ambientes (desenvolvimento, testes, produção) 
 1. Na API do Guia 1, ative os logs do EF Core e observe o SQL gerado por cada endpoint.
 2. Crie um endpoint de relatório `GET /api/relatorios/faturamento-por-categoria` usando Dapper e a consulta da seção 6.5.
 3. Escreva um pequeno programa console vulnerável a SQL Injection, explore a falha e depois corrija com parâmetros.
-4. **Desafio final:** encare o [sistema de locação de instrumentos musicais](05-desafio-final.md), com banco modelado por você, API em ASP.NET Core e front-end em Angular.
+4. **Desafio final:** encare o [sistema de locação de instrumentos musicais](06-desafio-final.md), com banco modelado por você, API em ASP.NET Core e front-end em Angular.
 
 ---
 
@@ -1785,4 +1785,4 @@ Assim, toda a equipe e todos os ambientes (desenvolvimento, testes, produção) 
 
 ---
 
-**Fim dos guias.** Agora é hora do [Desafio final: sistema de locação de instrumentos musicais](05-desafio-final.md), que une os quatro guias num projeto completo.
+**Fim dos guias.** Agora é hora do [Desafio final: sistema de locação de instrumentos musicais](06-desafio-final.md), que une tudo o que vocÃª aprendeu nos cinco guias num projeto completo.

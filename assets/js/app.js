@@ -11,26 +11,31 @@
   const GUIDES = [
     {
       id: 'csharp', file: 'guias/01-csharp-dotnet.md', line: 'csharp',
-      label: 'Linha 1 · Guia 1 de 4', short: 'C# e .NET', nav: 'C# e .NET',
+      label: 'Linha 1 · Guia 1 de 5', short: 'C# e .NET', nav: 'C# e .NET',
       desc: 'Lógica de programação, algoritmos, orientação a objetos, padrões de projeto e APIs com ASP.NET Core.',
     },
     {
-      id: 'javascript', file: 'guias/02-javascript-typescript-angular.md', line: 'js',
-      label: 'Linha 2 · Guia 2 de 4', short: 'JavaScript, TypeScript e Angular', nav: 'JS e Angular',
+      id: 'git', file: 'guias/02-git-versionamento.md', line: 'git',
+      label: 'Linha 2 · Guia 2 de 5', short: 'Git e versionamento', nav: 'Git',
+      desc: 'Commits, histórico, branches, merge e conflitos, GitHub e pull requests para versionar todos os seus projetos.',
+    },
+    {
+      id: 'javascript', file: 'guias/03-javascript-typescript-angular.md', line: 'js',
+      label: 'Linha 3 · Guia 3 de 5', short: 'JavaScript, TypeScript e Angular', nav: 'JS e Angular',
       desc: 'Lógica com JavaScript, linguagens compiladas e interpretadas, JavaScript na web, TypeScript e Angular.',
     },
     {
-      id: 'html-css', file: 'guias/03-html-css.md', line: 'html',
-      label: 'Linha 3 · Guia 3 de 4', short: 'HTML e CSS', nav: 'HTML e CSS',
+      id: 'html-css', file: 'guias/04-html-css.md', line: 'html',
+      label: 'Linha 4 · Guia 4 de 5', short: 'HTML e CSS', nav: 'HTML e CSS',
       desc: 'HTML semântico e acessível, CSS moderno com Flexbox e Grid, design responsivo e frameworks de estilo.',
     },
     {
-      id: 'sql', file: 'guias/04-sql-server.md', line: 'sql',
-      label: 'Linha 4 · Guia 4 de 4', short: 'SQL com SQL Server', nav: 'SQL Server',
+      id: 'sql', file: 'guias/05-sql-server.md', line: 'sql',
+      label: 'Linha 5 · Guia 5 de 5', short: 'SQL com SQL Server', nav: 'SQL Server',
       desc: 'Tabelas, chaves primárias e estrangeiras, relacionamentos, consultas, JOINs, normalização e índices.',
     },
     {
-      id: 'desafio', file: 'guias/05-desafio-final.md', line: 'desafio', challenge: true,
+      id: 'desafio', file: 'guias/06-desafio-final.md', line: 'desafio', challenge: true,
       label: 'Estação final · Desafio', short: 'Desafio final', nav: 'Desafio',
       desc: 'Construa um sistema de locação de instrumentos musicais com Angular, Web API em .NET e SQL Server.',
     },
@@ -396,7 +401,7 @@
           ? `<span class="status">Em andamento · ${s.pct}%</span>`
           : '<span class="status">Não iniciado</span>';
       const ctaText = s.complete ? 'Revisar' : s.done ? 'Continuar' : g.challenge ? 'Ver o desafio' : 'Começar';
-      const label = g.challenge && o.guidesDone < CORE.length ? `${g.label} · recomendado após os 4 guias` : g.label;
+      const label = g.challenge && o.guidesDone < CORE.length ? `${g.label} · recomendado após os 5 guias` : g.label;
       const stops = d.modules.map((m, j) => {
         const ms = s.mods[j];
         const cls = ms.done === ms.total ? 'is-done' : ms.done ? 'is-started' : '';
@@ -425,7 +430,7 @@
         <section class="hero" aria-labelledby="hero-title">
           <p class="hero__eyebrow">Trilha de estudos · desenvolvimento web</p>
           <h1 class="hero__title" id="hero-title">Do primeiro <code>Console.WriteLine</code> até a sua <span class="hero__end">primeira aplicação web completa.</span></h1>
-          <p class="hero__lede">Quatro guias em sequência, do back-end ao banco de dados, e um desafio final que junta tudo. Marque cada tópico quando terminar de estudar: seu progresso fica salvo neste navegador.</p>
+          <p class="hero__lede">Cinco guias em sequência, do back-end ao banco de dados, passando pelo versionamento de código, e um desafio final que junta tudo. Marque cada tópico quando terminar de estudar: seu progresso fica salvo neste navegador.</p>
           <p style="margin-top:28px">${cta}</p>
           <div class="route-bar">
             <div class="route-bar__track" aria-hidden="true">${segments}</div>
@@ -489,7 +494,7 @@
       </li>`).join('');
 
     const challengeNote = g.challenge && o.guidesDone < CORE.length
-      ? `<div class="prose"><blockquote><p>Este desafio foi pensado para depois dos quatro guias. Você concluiu ${o.guidesDone} de ${CORE.length}. Pode dar uma olhada agora, mas volte para os guias se algum assunto parecer novo.</p></blockquote></div>`
+      ? `<div class="prose"><blockquote><p>Este desafio foi pensado para depois dos cinco guias. Você concluiu ${o.guidesDone} de ${CORE.length}. Pode dar uma olhada agora, mas volte para os guias se algum assunto parecer novo.</p></blockquote></div>`
       : '';
 
     main.innerHTML = `
@@ -638,7 +643,7 @@
     } else if (o.guidesDone === CORE.length && !state.flags.challengeInvited) {
       state.flags.challengeInvited = Date.now();
       saveState();
-      title.textContent = 'Os quatro guias estão concluídos!';
+      title.textContent = 'Os cinco guias estão concluídos!';
       text.textContent = 'Agora vem o desafio final: construir um sistema de locação de instrumentos musicais com Angular, uma Web API em .NET e SQL Server.';
       next.textContent = 'Aceitar o desafio';
       next.href = '#/guia/desafio';

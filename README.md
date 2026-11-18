@@ -1,23 +1,26 @@
 # Trilha Web
 
-Trilha de estudos para quem está começando no desenvolvimento de software, com foco em aplicações web. São quatro guias em sequência e um desafio final, publicados como um site estático em que o estudante marca os tópicos estudados e acompanha o próprio progresso.
+Trilha de estudos para quem está começando no desenvolvimento de software, com foco em aplicações web. São cinco guias em sequência e um desafio final, publicados como um site estático em que o estudante marca os tópicos estudados e acompanha o próprio progresso.
 
 | # | Guia | Foco |
 |---|------|------|
 | 1 | [C# e .NET](guias/01-csharp-dotnet.md) | Lógica de programação, algoritmos, fundamentos, padrões de projeto e APIs |
-| 2 | [JavaScript, TypeScript e Angular](guias/02-javascript-typescript-angular.md) | Lógica com JS, compilada x interpretada, a linguagem na web, TypeScript e Angular |
-| 3 | [HTML e CSS](guias/03-html-css.md) | Estrutura de páginas, estilos, layout, responsividade e frameworks CSS |
-| 4 | [SQL com SQL Server](guias/04-sql-server.md) | Tabelas, chaves primárias e estrangeiras, relacionamentos, índices e consultas |
-| ★ | [Desafio final](guias/05-desafio-final.md) | Sistema de locação de instrumentos musicais com Angular, .NET Web API e SQL Server |
+| 2 | [Git e versionamento de código](guias/02-git-versionamento.md) | Commits, histórico, desfazer alterações, branches, merge, conflitos, GitHub e pull requests |
+| 3 | [JavaScript, TypeScript e Angular](guias/03-javascript-typescript-angular.md) | Lógica com JS, compilada x interpretada, a linguagem na web, TypeScript e Angular |
+| 4 | [HTML e CSS](guias/04-html-css.md) | Estrutura de páginas, estilos, layout, responsividade e frameworks CSS |
+| 5 | [SQL com SQL Server](guias/05-sql-server.md) | Tabelas, chaves primárias e estrangeiras, relacionamentos, índices e consultas |
+| ★ | [Desafio final](guias/06-desafio-final.md) | Sistema de locação de instrumentos musicais com Angular, .NET Web API e SQL Server |
 
-Cada guia começa com a instalação das ferramentas necessárias (.NET SDK, Visual Studio Community, VS Code, Node.js, Angular CLI, SQL Server e SQL Server Management Studio).
+Cada guia começa com a instalação das ferramentas necessárias (.NET SDK, Visual Studio Community, VS Code, Git, Node.js, Angular CLI, SQL Server e SQL Server Management Studio).
+
+O Git vem logo depois do C#: o estudante já tem código para versionar e, a partir dali, guarda os exercícios de cada guia e o desafio final em repositórios no GitHub.
 
 ## Como as peças se encaixam
 
 ```
 ┌─────────────────────────────┐
 │  NAVEGADOR (Front-end)      │  HTML + CSS + JavaScript/TypeScript (Angular)
-│  O que o usuário vê         │  → Guias 2 e 3
+│  O que o usuário vê         │  → Guias 3 e 4
 └──────────────┬──────────────┘
                │  HTTP (JSON)
 ┌──────────────▼──────────────┐
@@ -27,7 +30,7 @@ Cada guia começa com a instalação das ferramentas necessárias (.NET SDK, Vis
                │  SQL
 ┌──────────────▼──────────────┐
 │  BANCO DE DADOS             │  SQL Server
-│  Onde os dados ficam        │  → Guia 4
+│  Onde os dados ficam        │  → Guia 5
 └─────────────────────────────┘
 ```
 
@@ -37,11 +40,11 @@ O site lê os arquivos Markdown da pasta `guias/` direto no navegador. **Para al
 
 - Cada `## Parte` de um guia vira um **módulo**, e cada `### tópico` vira um item que pode ser marcado como estudado. Um módulo sem subtópicos conta como um tópico único.
 - As seções **Sumário**, **Glossário** e **Para continuar estudando** não entram na contagem.
-- Quando todos os tópicos de um guia são marcados, o guia fica **concluído** e o site mostra uma celebração. Ao concluir os quatro guias, o estudante é convidado para o desafio final.
+- Quando todos os tópicos de um guia são marcados, o guia fica **concluído** e o site mostra uma celebração. Ao concluir os cinco guias, o estudante é convidado para o desafio final.
 - Todo o progresso fica no `localStorage` do navegador (chave `trilha-web:progresso:v1`). Não há banco de dados nem login.
 - O site tem tema claro e escuro: segue o sistema por padrão e lembra a escolha feita no botão do topo.
 
-> Os identificadores dos tópicos são gerados a partir do texto dos títulos `###`. Se você renomear um título, o progresso já salvo naquele tópico deixa de ser reconhecido.
+> Os identificadores dos tópicos são gerados a partir do `id` do guia (definido em `assets/js/app.js`) e do texto dos títulos `###`. Renomear ou renumerar os arquivos `.md` não afeta o progresso salvo, mas renomear um título faz o progresso daquele tópico deixar de ser reconhecido.
 
 ### Estrutura
 
@@ -52,10 +55,11 @@ O site lê os arquivos Markdown da pasta `guias/` direto no navegador. **Para al
 │   └── js/app.js         ← leitura dos guias, rotas e progresso
 ├── guias/                ← o conteúdo (fonte única)
 │   ├── 01-csharp-dotnet.md
-│   ├── 02-javascript-typescript-angular.md
-│   ├── 03-html-css.md
-│   ├── 04-sql-server.md
-│   └── 05-desafio-final.md
+│   ├── 02-git-versionamento.md
+│   ├── 03-javascript-typescript-angular.md
+│   ├── 04-html-css.md
+│   ├── 05-sql-server.md
+│   └── 06-desafio-final.md
 └── README.md
 ```
 

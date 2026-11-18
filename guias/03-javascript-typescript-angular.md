@@ -1,8 +1,8 @@
-# Guia 2: JavaScript, TypeScript e Angular
+# Guia 3: JavaScript, TypeScript e Angular
 
 > **Objetivo:** reforçar a lógica de programação com uma segunda linguagem, entender a diferença entre linguagens compiladas e interpretadas, conhecer o JavaScript a fundo e como ele dá vida às páginas web, e terminar construindo aplicações com TypeScript e Angular.
 >
-> **Pré-requisito:** Guia 1 (C#). Muitos conceitos (variáveis, laços, funções, classes, async) já foram vistos lá; aqui focamos no que é diferente.
+> **Pré-requisitos:** Guia 1 (C#) e Guia 2 (Git). Muitos conceitos (variáveis, laços, funções, classes, async) já foram vistos lá; aqui focamos no que é diferente.
 
 ## Sumário
 
@@ -804,7 +804,7 @@ const semDois = lista.filter(n => n !== 2);          // em vez de splice
 | **CSS** | Aparência | Pintura, decoração |
 | **JavaScript** | Comportamento | Eletricidade, interruptores, campainha |
 
-O HTML e o CSS são aprofundados no Guia 3. Aqui você só precisa do básico de HTML para ver o JavaScript funcionando.
+O HTML e o CSS são aprofundados no Guia 4. Aqui você só precisa do básico de HTML para ver o JavaScript funcionando.
 
 ### 4.2 Incluindo JavaScript numa página
 
@@ -1723,4 +1723,4 @@ ng build    # gera os arquivos otimizados em dist/, prontos para publicar
 - **Documentação do Angular:** https://angular.dev, com tutoriais interativos.
 - **Livros:** *Eloquent JavaScript* (Marijn Haverbeke, gratuito online); série *You Don't Know JS* (Kyle Simpson, gratuita no GitHub).
 
-**Próximo passo:** [Guia 3: HTML e CSS](03-html-css.md)
+**Próximo passo:** [Guia 4: HTML e CSS](04-html-css.md)

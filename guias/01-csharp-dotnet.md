@@ -31,7 +31,7 @@ C# é uma linguagem **compilada**. Você escreve o código-fonte, um programa ch
 Seu código (.cs) ──► Compilador ──► IL (.dll) ──► Runtime .NET (JIT) ──► Código de máquina
 ```
 
-Você vai ver a diferença entre linguagens compiladas e interpretadas com mais calma no Guia 2.
+Você vai ver a diferença entre linguagens compiladas e interpretadas com mais calma no Guia 3.
 
 ### Ferramentas deste guia
 
@@ -80,7 +80,7 @@ O **Visual Studio** (não confunda com o VS Code) é uma **IDE** (*Integrated De
 2. Execute o arquivo baixado. Ele abre o **Visual Studio Installer**.
 3. Na aba **Cargas de trabalho** (*Workloads*), marque:
    - **Desenvolvimento para ASP.NET e Web** (*ASP.NET and web development*): **obrigatória** para este guia, inclui C#, .NET e APIs.
-   - **Armazenamento e processamento de dados** (*Data storage and processing*): opcional, adiciona ferramentas de SQL Server que serão úteis no Guia 4.
+   - **Armazenamento e processamento de dados** (*Data storage and processing*): opcional, adiciona ferramentas de SQL Server que serão úteis no Guia 5.
 4. Clique em **Instalar** e aguarde. O download tem alguns gigabytes.
 5. Na primeira abertura, você pode entrar com uma conta Microsoft (opcional) e escolher o tema de cores.
 
@@ -139,7 +139,7 @@ Não existe resposta errada. Muitos desenvolvedores usam o Visual Studio para o 
 
 ### Instalando o Git
 
-O **Git** guarda o histórico do seu código e permite publicar projetos no GitHub. Você vai precisar dele no desafio final.
+O **Git** guarda o histórico do seu código e permite publicar projetos no GitHub. O Guia 2 ensina a usá-lo; instalar agora já permite versionar os exercícios deste guia.
 
 ```bash
 winget install Git.Git
@@ -830,7 +830,7 @@ var caixaDeNumero = new Caixa<int>(42);
 
 Uma **lambda** é uma função curta e sem nome: `x => x * 2` significa "recebe x, devolve x vezes 2".
 
-**LINQ** (Language Integrated Query) permite consultar coleções de forma declarativa, parecida com SQL (que você verá no Guia 4).
+**LINQ** (Language Integrated Query) permite consultar coleções de forma declarativa, parecida com SQL (que você verá no Guia 5).
 
 ```csharp
 var produtos = new List<Produto>
@@ -1520,7 +1520,7 @@ Repare como o controller é "magro": ele só recebe a requisição, chama o serv
 
 ### 4.8 Entity Framework Core: conectando ao banco
 
-O **Entity Framework Core (EF Core)** é um **ORM** (Object-Relational Mapper): ele traduz classes C# em tabelas do banco e consultas LINQ em SQL. Você vai entender as tabelas e o SQL gerado no Guia 4.
+O **Entity Framework Core (EF Core)** é um **ORM** (Object-Relational Mapper): ele traduz classes C# em tabelas do banco e consultas LINQ em SQL. Você vai entender as tabelas e o SQL gerado no Guia 5.
 
 ```bash
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
@@ -1740,7 +1740,7 @@ builder.Services.AddCors(o => o.AddPolicy("Frontend", p =>
 app.UseCors("Frontend");
 ```
 
-Você vai precisar disso quando conectar o Angular (Guia 2) à sua API.
+Você vai precisar disso quando conectar o Angular (Guia 3) à sua API.
 
 ### 4.13 Autenticação e autorização
 
@@ -1822,4 +1822,4 @@ public async Task<ActionResult<List<ProdutoDto>>> Listar() { /* ... */ }
 - **Livros:** *Código Limpo* (Robert C. Martin); *Padrões de Projeto* (Gamma, Helm, Johnson, Vlissides); *Entendendo Algoritmos* (Aditya Bhargava), excelente para iniciantes.
 - **Prática de algoritmos:** https://www.beecrowd.com.br (problemas em português), https://exercism.org/tracks/csharp, https://leetcode.com
 
-**Próximo passo:** [Guia 2: JavaScript, TypeScript e Angular](02-javascript-typescript-angular.md)
+**Próximo passo:** [Guia 2: Git e versionamento de código](02-git-versionamento.md)

@@ -19,6 +19,7 @@
 
   /* Cores das linhas (uma por guia) */
   --line-csharp: #7b4dff;
+  --line-git: #d6338a;
   --line-js: #e0a800;
   --line-html: #e5532d;
   --line-sql: #1f7ae0;
@@ -26,6 +27,7 @@
 
   /* Versões com contraste para texto */
   --ink-csharp: #5b2fe0;
+  --ink-git: #b01f6c;
   --ink-js: #8a6400;
   --ink-html: #c23a15;
   --ink-sql: #145fb8;
@@ -67,12 +69,14 @@
     --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 30%);
 
     --line-csharp: #a487ff;
+    --line-git: #ff6eb4;
     --line-js: #f2c230;
     --line-html: #ff7a52;
     --line-sql: #5aa6ff;
     --line-desafio: #34d399;
 
     --ink-csharp: #b9a3ff;
+    --ink-git: #ff8cc4;
     --ink-js: #f2c230;
     --ink-html: #ff8f6b;
     --ink-sql: #7cb8ff;
@@ -101,12 +105,14 @@
   --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 30%);
 
   --line-csharp: #a487ff;
+  --line-git: #ff6eb4;
   --line-js: #f2c230;
   --line-html: #ff7a52;
   --line-sql: #5aa6ff;
   --line-desafio: #34d399;
 
   --ink-csharp: #b9a3ff;
+  --ink-git: #ff8cc4;
   --ink-js: #f2c230;
   --ink-html: #ff8f6b;
   --ink-sql: #7cb8ff;
@@ -122,6 +128,7 @@
 }
 
 [data-line="csharp"]  { --line: var(--line-csharp);  --line-ink: var(--ink-csharp); }
+[data-line="git"]     { --line: var(--line-git);     --line-ink: var(--ink-git); }
 [data-line="js"]      { --line: var(--line-js);      --line-ink: var(--ink-js); }
 [data-line="html"]    { --line: var(--line-html);    --line-ink: var(--ink-html); }
 [data-line="sql"]     { --line: var(--line-sql);     --line-ink: var(--ink-sql); }
@@ -373,7 +380,7 @@ main:focus { outline: none; }
   white-space: nowrap;
 }
 .hero__title .hero__end {
-  background: linear-gradient(90deg, var(--line-csharp), var(--line-js), var(--line-html), var(--line-sql));
+  background: linear-gradient(90deg, var(--line-csharp), var(--line-git), var(--line-js), var(--line-html), var(--line-sql));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

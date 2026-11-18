@@ -1,8 +1,8 @@
-# Guia 3: HTML e CSS
+# Guia 4: HTML e CSS
 
 > **Objetivo:** dominar a construção da interface de aplicações web: estruturar páginas com HTML semântico e acessível, estilizá-las com CSS moderno (Flexbox, Grid, responsividade) e conhecer os principais frameworks de estilo.
 >
-> **Pré-requisitos:** Guias 1 e 2. Você já viu um pouco de HTML na Parte 4 do Guia 2; agora vamos a fundo.
+> **Pré-requisitos:** Guias 1 a 3. Você já viu um pouco de HTML na Parte 4 do Guia 3; agora vamos a fundo.
 
 ## Sumário
 
@@ -96,7 +96,7 @@ Quando você digita um endereço e aperta Enter:
 
 1. O navegador descobre o IP do servidor (DNS) e faz uma requisição HTTP (Guia 1, Parte 4).
 2. O servidor devolve um arquivo **HTML**.
-3. O navegador lê o HTML e monta a árvore **DOM** (Guia 2, Parte 4).
+3. O navegador lê o HTML e monta a árvore **DOM** (Guia 3, Parte 4).
 4. Ao encontrar `<link>` para CSS e `<script>` para JavaScript, baixa esses arquivos.
 5. Lê o CSS e monta a árvore de estilos (**CSSOM**).
 6. Combina DOM + CSSOM, calcula o tamanho e a posição de cada elemento (**layout**) e desenha na tela (**paint**).
@@ -293,7 +293,7 @@ Use tabelas **apenas para dados tabulares**, nunca para fazer layout.
 </table>
 ```
 
-Repare como a tabela HTML se parece com uma tabela de banco de dados (Guia 4): colunas, linhas e um cabeçalho.
+Repare como a tabela HTML se parece com uma tabela de banco de dados (Guia 5): colunas, linhas e um cabeçalho.
 
 ### 2.7 HTML semântico
 
@@ -1176,7 +1176,7 @@ No DevTools, clique no ícone de celular/tablet (**Device Toolbar**, Ctrl+Shift+
 ### Exercícios da Parte 5
 
 1. Torne responsiva a página de currículo: uma coluna no celular e duas no desktop (dados pessoais à esquerda, experiência à direita).
-2. Crie um menu que, no celular, vira um botão "☰" que abre e fecha a lista de links (use um pouco de JavaScript do Guia 2 ou `<details>`).
+2. Crie um menu que, no celular, vira um botão "☰" que abre e fecha a lista de links (use um pouco de JavaScript do Guia 3 ou `<details>`).
 3. Adicione um tema escuro automático com `prefers-color-scheme`.
 4. Use `clamp()` para que os títulos se ajustem suavemente ao tamanho da tela.
 
@@ -1378,7 +1378,7 @@ css/
 ### Exercícios da Parte 6
 
 1. Refatore os estilos que você criou até aqui usando variáveis CSS para todas as cores, espaçamentos e raios.
-2. Adicione um botão que alterna entre tema claro e escuro trocando uma classe no `<body>` (JavaScript do Guia 2) e redefinindo as variáveis nessa classe.
+2. Adicione um botão que alterna entre tema claro e escuro trocando uma classe no `<body>` (JavaScript do Guia 3) e redefinindo as variáveis nessa classe.
 3. Crie um indicador de carregamento (spinner) só com CSS.
 4. Renomeie as classes do seu cartão de produto seguindo o BEM.
 
@@ -1485,7 +1485,7 @@ Outras bibliotecas populares para Angular: **PrimeNG** e **ng-bootstrap**.
 
 ### 7.6 Pré-processadores: Sass/SCSS
 
-**Sass** é uma linguagem que estende o CSS e é compilada para CSS (lembra da transpilação do Guia 2?). A sintaxe **SCSS** é a mais usada e é um superconjunto do CSS.
+**Sass** é uma linguagem que estende o CSS e é compilada para CSS (lembra da transpilação do Guia 3?). A sintaxe **SCSS** é a mais usada e é um superconjunto do CSS.
 
 ```scss
 // _variaveis.scss
@@ -1532,7 +1532,7 @@ Recursos: variáveis, aninhamento, mixins (blocos reutilizáveis), funções, di
 
 ### 8.1 Templates são HTML com superpoderes
 
-Tudo o que você aprendeu neste guia vale dentro dos templates Angular (Guia 2, Parte 6). O Angular acrescenta data binding e controle de fluxo:
+Tudo o que você aprendeu neste guia vale dentro dos templates Angular (Guia 3, Parte 6). O Angular acrescenta data binding e controle de fluxo:
 
 ```html
 <article class="cartao" [class.cartao--esgotado]="produto().estoque === 0">
@@ -1588,7 +1588,7 @@ Isso resolve boa parte dos problemas que o BEM resolve. Estilos globais (reset, 
 
 ### Exercícios da Parte 8
 
-1. Aplique os estilos deste guia à aplicação **Minha Loja** do Guia 2: variáveis CSS globais, cartões com Grid responsivo e um cabeçalho com Flexbox.
+1. Aplique os estilos deste guia à aplicação **Minha Loja** do Guia 3: variáveis CSS globais, cartões com Grid responsivo e um cabeçalho com Flexbox.
 2. Crie um componente `Botao` reutilizável com input `variante` (`'primario' | 'secundario' | 'perigo'`) que muda as classes aplicadas.
 3. Rode o Lighthouse na sua aplicação Angular e atinja nota acima de 90 em acessibilidade.
 
@@ -1621,4 +1621,4 @@ Isso resolve boa parte dos problemas que o BEM resolve. Estilos globais (reset, 
 - **Inspiração e desafios:** https://www.frontendmentor.io traz layouts profissionais para você reproduzir.
 - **Can I Use:** https://caniuse.com mostra quais navegadores suportam cada recurso.
 
-**Próximo passo:** [Guia 4: SQL com SQL Server](04-sql-server.md)
+**Próximo passo:** [Guia 5: SQL com SQL Server](05-sql-server.md)
